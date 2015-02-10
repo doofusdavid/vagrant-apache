@@ -25,7 +25,7 @@ fi
 # Create the wp database
 mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS wpdb"
 
-# run wp as vagrant, not as root.
+# run wp as vagrant, not as root.  wp hates running as root.
 if (( $EUID == 0 )); then
     wp() { sudo -EH -u vagrant -- wp "$@"; }
 fi
@@ -33,3 +33,4 @@ fi
 # Download and install the Wordpress Core Files
 wp core download --path=/var/www/html
 wp core config --path=/var/www/html --dbname=wpdb --dbuser=root --dbpass=root 
+wp core install -path=/var/www/html --url=http://www.wp.dev --title='Wordpress Dev Site' --admin_user=devadmin --admin_password=adminpass
