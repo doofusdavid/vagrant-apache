@@ -33,4 +33,4 @@ fi
 # Download and install the Wordpress Core Files
 wp core download --path=/var/www/html
 wp core config --path=/var/www/html --dbname=wpdb --dbuser=root --dbpass=root 
-wp core install -path=/var/www/html --url=http://www.wp.dev --title='Wordpress Dev Site' --admin_user=devadmin --admin_password=adminpass
+wp core install --path=/var/www/html --url=http://www.wp.dev --title='Wordpress Dev Site' --admin_user=devadmin --admin_password=adminpass
