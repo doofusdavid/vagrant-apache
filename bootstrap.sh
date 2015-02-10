@@ -34,3 +34,7 @@ fi
 wp core download --path=/var/www/html
 wp core config --path=/var/www/html --dbname=wpdb --dbuser=root --dbpass=root 
 wp core install --path=/var/www/html --url=http://www.wp.dev --title='Wordpress Dev Site' --admin_user=devadmin --admin_password=adminpass --admin_email='admin@wp.dev'
+
+# install adminer
+sudo apt-get install -y adminer
+cp -r /usr/share/adminer/adminer /var/www/html

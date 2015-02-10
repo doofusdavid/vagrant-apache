@@ -7,6 +7,7 @@ This only works properly for Parallels on Mac.
 
 The admin user is as follows:
 > user: devadmin
+
 > pwd: adminpass
 
 Obviously, only use this for development.
