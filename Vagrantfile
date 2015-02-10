@@ -26,15 +26,10 @@ Vagrant.configure(2) do |config|
   # using a specific IP.
 	config.vm.network :private_network, ip: "192.168.3.10"
 	config.vm.hostname = "www.wp.dev"
+	config.hostsupdater.aliases = ["www.wp.dev"]
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-    sudo apt-get install -y apache2
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-	sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
-	sudo apt-get install -y mysql-server
-  SHELL
+	config.vm.provision :shell, path: "bootstrap.sh"
 end
